@@ -13,7 +13,7 @@ int main() {
 
     auto material_ground = make_shared<lambertian>(color(0.8, 0.8, 0.0));
     auto material_center = make_shared<lambertian>(color(0.1, 0.2, 0.5));
-    auto material_left   = make_shared<dielectric>(1.50); // Use a refraction index of 1.5 to make the left sphere appear like glass
+    auto material_left   = make_shared<dielectric>(1.00 / 1.33); // Use a refractive index of 1.33 to make the left sphere appear like glass
     auto material_right  = make_shared<metal>(color(0.8, 0.6, 0.2), 1.0); // Use a fuzz value of 1.0 to make the right sphere appear very blurry
 
     world.add(make_shared<sphere>(point3( 0.0, -100.5, -1.0), 100.0, material_ground));
