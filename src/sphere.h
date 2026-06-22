@@ -3,6 +3,8 @@
 
 #include "hittable.h"
 
+// Sphere class that represents a sphere object in the ray tracing scene. 
+// It includes properties for the center, radius, and material of the sphere, as well as a method to determine if a ray hits the sphere and to compute the hit record information.
 class sphere : public hittable {
     private:
     point3 center;

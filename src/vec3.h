@@ -1,7 +1,8 @@
 #ifndef VEC3_H
 #define VEC3_H
 
-
+// Vec3 class that represents a 3D vector or point in space. 
+// It includes methods for vector arithmetic, length calculation, and utility functions for generating random vectors and
 class vec3 {
     public:
     double e[3];
@@ -17,13 +18,14 @@ class vec3 {
     double operator[](int i) const { return e[i]; }
     double& operator[](int i) { return e[i]; }
 
+    // Compound assignment operators for vector arithmetic
     vec3& operator+=(const vec3 &v) {
         e[0] += v.e[0];
         e[1] += v.e[1];
         e[2] += v.e[2];
         return *this;
     }
-
+    
     vec3& operator*=(const double t) {
         e[0] *= t;
         e[1] *= t;
@@ -35,6 +37,7 @@ class vec3 {
         return *this *= 1/t;
     }
 
+    // Length calculation methods for the vector
     double length() const {
         return std::sqrt(length_squared());
     }
@@ -49,10 +52,12 @@ class vec3 {
         return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
     }
 
+    // Static utility functions for generating random vectors in various ranges and distributions
     static vec3 random() {
         return vec3(random_double(), random_double(), random_double());
     }
 
+    // Returns a random vector with each component in the range [min, max).
     static vec3 random(double min, double max) {
         return vec3(random_double(min,max), random_double(min,max), random_double(min,max));
     }

@@ -3,6 +3,7 @@
 
 #include "vec3.h"
 
+// Ray class that represents a ray in 3D space, defined by an origin point and a direction vector.
 class ray {
     // orig is the origin of the ray, dir is the direction of the ray
     private:

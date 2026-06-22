@@ -1,6 +1,8 @@
 #ifndef INTERVAL_H
 #define INTERVAL_H
 
+// Interval class that represents a range of values between a minimum and maximum. 
+// It provides methods to compute the size of the interval, check if a value is contained within
 class interval {
   public:
     double min, max;
