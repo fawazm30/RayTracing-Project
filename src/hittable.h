@@ -1,8 +1,10 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
+// Hittable class that defines the interface for objects that can be hit by rays in the scene.
 class material;
 
+// Hit record struct that stores information about a ray-object intersection, including the hit point, surface normal, material of the hit object, ray parameter t, and whether the hit was on the front face of the surface.
 class hit_record {
     public:
     point3 p; 
@@ -17,6 +19,7 @@ class hit_record {
     }
 };
 
+// Hittable class that defines the interface for objects that can be hit by rays in the scene.
 class hittable {
     public:
     virtual ~hittable() = default;

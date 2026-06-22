@@ -5,6 +5,8 @@
 
 #include <vector>
 
+// Hittable list class that represents a collection of hittable objects in the scene. 
+// It provides methods to add objects to the list and to determine if a ray hits any of the objects in the list, returning information about the closest hit.
 class hittable_list : public hittable {
   public:
     std::vector<shared_ptr<hittable>> objects;
@@ -18,6 +20,8 @@ class hittable_list : public hittable {
         objects.push_back(object);
     }
 
+    // Determines if a ray hits any of the objects in the list. 
+    // It iterates through all objects, checking for hits and keeping track of the closest hit found. If a hit is found, it updates the hit record with information about the hit.
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         hit_record temp_rec;
         bool hit_anything = false;

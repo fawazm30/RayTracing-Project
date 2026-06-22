@@ -4,6 +4,9 @@
 #include "hittable.h"
 #include "material.h"
 
+
+// Camera class that defines the properties and behavior of a virtual camera in the ray tracing scene. 
+// It includes parameters for aspect ratio, image dimensions, field of view, camera position and orientation, defocus settings, and methods for rendering the scene and generating rays for each pixel.
 class camera {
   public:
     double aspect_ratio = 1.0;  // Ratio of image width over height

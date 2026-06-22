@@ -3,6 +3,8 @@
 
 #include "hittable.h"
 
+// Material class that defines the interface for materials in the ray tracing scene.
+// It includes a scatter method that determines how rays interact with the material, returning information about the scattered ray and the attenuation of the color.
 class material {
   public:
     virtual ~material() = default;
@@ -14,6 +16,8 @@ class material {
     }
 };
 
+// Lambertian material class that represents a diffuse material. 
+// It scatters rays in random directions and attenuates the color based on the albedo of the material.
 class lambertian : public material {
   public:
     lambertian(const color& albedo) : albedo(albedo) {}
@@ -35,6 +39,8 @@ class lambertian : public material {
     color albedo;
 };
 
+// Metal material class that represents a reflective material.
+// It reflects rays based on the incoming ray direction and the surface normal, with an optional fuzziness factor to create blurred reflections.
 class metal : public material {
   public:
     metal(const color& albedo, double fuzz) : albedo(albedo), fuzz(fuzz < 1 ? fuzz : 1) {}
@@ -53,6 +59,8 @@ class metal : public material {
     double fuzz;
 };
 
+// Dielectric material class that represents a transparent material, such as glass.
+// It refracts rays based on the incoming ray direction, surface normal, and the material's
 class dielectric : public material {
   public:
     dielectric(double refraction_index) : refraction_index(refraction_index) {}

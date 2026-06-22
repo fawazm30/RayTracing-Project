@@ -6,6 +6,9 @@
 
 using color = vec3;
 
+
+// Helper function to apply a linear to gamma transform for gamma 2. 
+// This is used to convert the linear color values computed by the ray tracer into a more visually pleasing form for display.
 inline double linear_to_gamma(double linear_component)
 {
     if (linear_component > 0)
@@ -14,6 +17,8 @@ inline double linear_to_gamma(double linear_component)
     return 0;
 }
 
+// Helper function to write a color to an output stream. 
+// The color is first transformed from linear to gamma space, then clamped to the [0, 0.999] range, and finally scaled to the [0, 255] range for output as RGB values.
 void write_color(std::ostream& out, const color& pixel_color) {
     auto r = pixel_color.x();
     auto g = pixel_color.y();
